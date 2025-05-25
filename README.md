@@ -1,4 +1,4 @@
-# YourPluginNameHere
+# EditKeys Plugin
 
 このプラグインは `EditKeys` に依存する Spigot/Bukkit 向けの Minecraft プラグインです。
 

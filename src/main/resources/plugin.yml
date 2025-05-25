@@ -1,0 +1,16 @@
+name: EditKeys
+version: '1.0-SNAPSHOT'
+main: org.uta.editKeysMain.EditKeysMain
+api-version: '1.21'
+
+commands:
+  editkeys:
+    description: Edit Keys for items or players.
+    usage: /<command> [item|player] [set|get|remove] [key] [value]
+    permission: editkeys.use
+    tab-completer: org.uta.EditKeys.Commands.EditKeysTabCompleter
+
+permissions:
+  editkeys.use:
+    description: /editkeys を使うための権限
+    default: op

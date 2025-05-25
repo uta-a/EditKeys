@@ -50,3 +50,30 @@ YourPlugin/
 ├── plugin.yml
 └── README.md
 ```
+
+---
+
+## 実際の使用例
+```java
+// set string
+ItemStack item = player.getInventory().getItemInMainHand();
+ItemStack newItem = EditItemKeys.setString(item, "test-key", "test-value");
+player.getInventory().setItem(0, newItem);
+```
+```java
+// get douoble
+ItemStack item = player.getInventory().getItemInMainHand();
+Double value = EditItemKeys.getDouble(item, "double-key");
+```
+```java
+// has
+ItemStack item = player.getInventory().getItemInMainHand();
+Boolean isKey = EditItemKeys.has(item, "test-key3");
+```
+```java
+Float value = EditPlayerKeys.get(player, "test-key4");
+```
+
+
+
+

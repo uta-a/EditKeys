@@ -71,6 +71,7 @@ ItemStack item = player.getInventory().getItemInMainHand();
 Boolean isKey = EditItemKeys.has(item, "test-key3");
 ```
 ```java
+// player get
 Float value = EditPlayerKeys.get(player, "test-key4");
 ```
 

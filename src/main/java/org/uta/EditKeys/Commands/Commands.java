@@ -13,6 +13,7 @@ import org.uta.EditKeys.Player.EditPlayerKeys;
 
 import java.util.Objects;
 
+
 public class Commands implements CommandExecutor {
 
     @Override
@@ -84,15 +85,13 @@ public class Commands implements CommandExecutor {
                     player.sendMessage("§c値が型に変換できません: " + value);
                 }
 
-                player.sendMessage(prefix("EditKeys") + surround(ChatColor.GRAY, type) + surround(ChatColor.GRAY, key) + surround(ChatColor.GRAY, res.toString()));
+                player.sendMessage(prefix("EditKeys") + surround(ChatColor.GRAY, type) + surround(ChatColor.GRAY, key) + surround(ChatColor.GRAY, Objects.requireNonNull(res).toString()));
             }
             case "remove" -> {
                 EditItemKeys.remove(item, key);
                 player.sendMessage(prefix("EditKeys") + surround(ChatColor.GRAY, key) + ChatColor.WHITE+"removed");
             }
-            default -> {
-                player.sendMessage(ChatColor.RED + "2番目の引数は 'set', 'get', 'remove' のいずれかである必要があります。");
-            }
+            default -> player.sendMessage(ChatColor.RED + "2番目の引数は 'set', 'get', 'remove' のいずれかである必要があります。");
         }
     }
 
@@ -127,15 +126,13 @@ public class Commands implements CommandExecutor {
                     player.sendMessage("§c値が型に変換できません: " + value);
                 }
 
-                player.sendMessage(prefix("EditKeys") + surround(ChatColor.GRAY, type) + surround(ChatColor.GRAY, key) + surround(ChatColor.GRAY, res.toString()));
+                player.sendMessage(prefix("EditKeys") + surround(ChatColor.GRAY, type) + surround(ChatColor.GRAY, key) + surround(ChatColor.GRAY, Objects.requireNonNull(res).toString()));
             }
             case "remove" -> {
                 EditPlayerKeys.remove(player, key);
                 player.sendMessage(prefix("EditKeys" + surround(ChatColor.GRAY, key)) + ChatColor.WHITE+"removed");
             }
-            default -> {
-                player.sendMessage(ChatColor.RED + "2番目の引数は 'set', 'get', 'remove' のいずれかである必要があります。");
-            }
+            default -> player.sendMessage(ChatColor.RED + "2番目の引数は 'set', 'get', 'remove' のいずれかである必要があります。");
         }
     }
 

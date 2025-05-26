@@ -11,6 +11,8 @@ import org.jetbrains.annotations.NotNull;
 import org.uta.EditKeys.Item.EditItemKeys;
 import org.uta.EditKeys.Player.EditPlayerKeys;
 
+import java.util.Objects;
+
 public class Commands implements CommandExecutor {
 
     @Override
@@ -30,6 +32,10 @@ public class Commands implements CommandExecutor {
         String key = args[3].toLowerCase();     // [key]
         String value = args.length >= 5 ? args[4].toLowerCase() : null; // [value]
 
+        // setでvalueがない場合
+        if (type.equals("set") && value == null) {
+            return false;
+        }
 
 
         if (target.equals("item")) {

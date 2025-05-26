@@ -12,15 +12,16 @@ public final class EditKeysMain extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        // Plugin 起動時の処理
         EditItemKeys.initialize(this);
         EditPlayerKeys.initialize(this);
+
         Objects.requireNonNull(getCommand("editkeys")).setExecutor(new Commands());
         Objects.requireNonNull(getCommand("editkeys")).setTabCompleter(new TabComp());
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        // Plugin 停止時の処理（必要に応じて追加）
     }
 }

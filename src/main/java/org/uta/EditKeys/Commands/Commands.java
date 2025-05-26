@@ -34,7 +34,7 @@ public class Commands implements CommandExecutor {
         String value = args.length >= 5 ? args[4].toLowerCase() : null; // [value]
 
         // setでvalueがない場合
-        if (type.equals("set") && value == null) {
+        if (action.equals("set") && value == null) {
             return false;
         }
 
@@ -68,8 +68,9 @@ public class Commands implements CommandExecutor {
                     }
                 } catch (NullPointerException e) {
                     player.sendMessage("§c値が型に変換できません: " + value);
+                    break;
                 }
-                player.sendMessage(prefix("EditKeys") + surround(ChatColor.GRAY, type) + surround(ChatColor.GRAY, key) + surround(ChatColor.GRAY, value));
+                player.sendMessage(prefix("EditKeys") + surround(type) + surround(key) + surround(value));
             }
             case "get" -> {
                 Object res = null;
@@ -83,13 +84,14 @@ public class Commands implements CommandExecutor {
                     }
                 } catch (NullPointerException e) {
                     player.sendMessage("§c値が型に変換できません: " + value);
+                    break;
                 }
 
-                player.sendMessage(prefix("EditKeys") + surround(ChatColor.GRAY, type) + surround(ChatColor.GRAY, key) + surround(ChatColor.GRAY, Objects.requireNonNull(res).toString()));
+                player.sendMessage(prefix("EditKeys") + surround(type) + surround(key) + surround(Objects.requireNonNull(res).toString()));
             }
             case "remove" -> {
                 EditItemKeys.remove(item, key);
-                player.sendMessage(prefix("EditKeys") + surround(ChatColor.GRAY, key) + ChatColor.WHITE+"removed");
+                player.sendMessage(prefix("EditKeys") + surround(key) + ChatColor.WHITE+"removed");
             }
             default -> player.sendMessage(ChatColor.RED + "2番目の引数は 'set', 'get', 'remove' のいずれかである必要があります。");
         }
@@ -109,8 +111,9 @@ public class Commands implements CommandExecutor {
                     }
                 } catch (NullPointerException e) {
                     player.sendMessage("§c値が型に変換できません: " + value);
+                    break;
                 }
-                player.sendMessage(prefix("EditKeys") + surround(ChatColor.GRAY, type) + surround(ChatColor.GRAY, key) + surround(ChatColor.GRAY, value));
+                player.sendMessage(prefix("EditKeys") + surround(type) + surround(key) + surround(value));
             }
             case "get" -> {
                 Object res = null;
@@ -124,13 +127,14 @@ public class Commands implements CommandExecutor {
                     }
                 } catch (NullPointerException e) {
                     player.sendMessage("§c値が型に変換できません: " + value);
+                    break;
                 }
 
-                player.sendMessage(prefix("EditKeys") + surround(ChatColor.GRAY, type) + surround(ChatColor.GRAY, key) + surround(ChatColor.GRAY, Objects.requireNonNull(res).toString()));
+                player.sendMessage(prefix("EditKeys") + surround(type) + surround(key) + surround(Objects.requireNonNull(res).toString()));
             }
             case "remove" -> {
                 EditPlayerKeys.remove(player, key);
-                player.sendMessage(prefix("EditKeys" + surround(ChatColor.GRAY, key)) + ChatColor.WHITE+"removed");
+                player.sendMessage(prefix("EditKeys" + surround(key)) + ChatColor.WHITE+"removed");
             }
             default -> player.sendMessage(ChatColor.RED + "2番目の引数は 'set', 'get', 'remove' のいずれかである必要があります。");
         }
@@ -140,8 +144,8 @@ public class Commands implements CommandExecutor {
         return ChatColor.GOLD+"[" + ChatColor.WHITE+key + ChatColor.GOLD+"]" + ChatColor.GRAY+": ";
     }
 
-    private String surround(ChatColor color, String key) {
-        return color+"[" + ChatColor.WHITE+key + color+"]" + ChatColor.WHITE+" ";
+    private String surround(String key) {
+        return ChatColor.GRAY+"[" + ChatColor.WHITE+key + ChatColor.GRAY+"]" + ChatColor.WHITE+" ";
     }
 
 }

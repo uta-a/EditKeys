@@ -12,10 +12,15 @@
 2. `EditKeys.jar` を `libs/` フォルダ内に配置
 3. `build.gradle` に以下を追加：
 
+gradle
 ```gradle
 dependencies {
     compileOnly files("libs/EditKeys.jar")
 }
+```
+maven
+```
+mavenのやり方はわからないので各自で調べて
 ```
 
 ---
